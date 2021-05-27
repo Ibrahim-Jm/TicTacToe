@@ -24,6 +24,10 @@
             android:name="com.example.tictactoe.HighestScore"
             android:label="Highest Scores"
             android:parentActivityName="com.example.tictactoe.MainActivity" />
+        <activity
+            android:name="com.example.tictactoe.BluetoothConnect"
+            android:label="Bluetooth Connection"
+            android:parentActivityName="com.example.tictactoe.MainActivity" />
         <activity android:name="com.example.tictactoe.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

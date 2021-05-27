@@ -1752,6 +1752,12 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id address1
+id address2
+id address3
+id address4
+id address5
+id addressHeader
 id alertTitle
 id aligned
 id all
@@ -1776,6 +1782,9 @@ id button1
 id button10
 id button11
 id button12
+id button13
+id button14
+id button15
 id button2
 id button3
 id button4
@@ -1960,6 +1969,12 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id name
+id name1
+id name2
+id name3
+id name4
+id name5
+id nameHeader
 id navigation_header_container
 id never
 id noScroll
@@ -2175,6 +2190,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_highest_score
 layout activity_main
+layout bluetooth_connect
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

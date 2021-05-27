@@ -33,15 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void connect(View v){
-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (bluetoothAdapter == null) {
-            // Device doesn't support Bluetooth
-        }else {
-            if (!bluetoothAdapter.isEnabled()) {
-                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivityForResult(enableBtIntent, 1);
-            }
-        }
+            Intent i=new Intent(this,BluetoothConnect.class);
+            startActivity(i);
     }
     public void enterName(View V){
         TextView i=findViewById(R.id.enteredName);
@@ -59,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         isDone=false;
         for (int i=0;i<9;i++){
             T.setText("Not yet");
+            fields.get(i).setBackgroundColor(0xFF3333cc);
+            fields.get(i).setTextColor(0xFFffffff);
             String w=String.valueOf(i+1);
             fields.get(i).setText(w);
             fields.get(i).setEnabled(true);
@@ -71,9 +66,14 @@ public class MainActivity extends AppCompatActivity {
             v.setEnabled(false);
             if (counter % 2 == 0) {
                 b.setText("X");
+                b.setBackgroundColor(0xFF0d9e3d);
+                b.setTextColor(-100);
             } else {
                 b.setText("O");
+                b.setBackgroundColor(0xFF9e0d3d);
+                b.setTextColor(-100);
             }
+            checkDraw();
             checkVertical();
             checkHorizontal();
             checkDiagonalfirst();
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             if ((!fields.get(i).isEnabled()&&(fields.get(i).getText()=="O"))&&(!fields.get(secondNum).isEnabled()&&(fields.get(secondNum).getText()=="O"))&&(!fields.get(thirdNum).isEnabled()&&(fields.get(thirdNum).getText()=="O"))){
                 oWin();
             }
+
         }
     }
     public void checkHorizontal(){
@@ -147,14 +148,30 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    public void checkDraw(){
+        int counter=0;
+        for (int i =0;i<9;i++){
+            if (!fields.get(i).isEnabled()){
+                counter++;
+        }}
+        if (counter==9){
+            draw();
+        }
+    }
+
     public void xWin(){
         TextView T=findViewById(R.id.textView);
-        T.setText("X win UWU");
+        T.setText("X win");
         isDone=true;
     }
     public void oWin(){
         TextView T=findViewById(R.id.textView);
-        T.setText("O win UWU");
+        T.setText("O win");
+        isDone=true;
+    }
+    public void draw(){
+        TextView T=findViewById(R.id.textView);
+        T.setText("Draw");
         isDone=true;
     }
 }
